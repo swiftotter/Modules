@@ -4,10 +4,7 @@
 	<modules>
         <SwiftOtter_BrowseAttribute>
             <active>true</active>
-            <codePool>local</codePool>
-            <depends>
-                <SwiftOtter_Adminhtml/>
-            </depends>
+            <codePool>community</codePool>
         </SwiftOtter_BrowseAttribute>
 	</modules>
 </config>

@@ -3,7 +3,7 @@
 	<modules>
 		<SwiftOtter_KitProduct>
 			<active>true</active>
-			<codePool>local</codePool>
+			<codePool>community</codePool>
 		</SwiftOtter_KitProduct>
 	</modules>
 </config>

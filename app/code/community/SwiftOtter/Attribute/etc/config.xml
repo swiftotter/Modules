@@ -1,0 +1,83 @@
+<config>
+    <modules>
+        <SwiftOtter_Attribute>
+            <version>1.0.2</version>
+        </SwiftOtter_Attribute>
+    </modules>
+
+    <global>
+        <helpers>
+            <SwiftOtter_Attribute>
+                <class>SwiftOtter_Attribute_Helper</class>
+            </SwiftOtter_Attribute>
+        </helpers>
+
+        <blocks>
+            <SwiftOtter_Attribute>
+                <class>SwiftOtter_Attribute_Block</class>
+            </SwiftOtter_Attribute>
+            <catalog>
+                <rewrite>
+                    <product_view_attributes>SwiftOtter_Attribute_Block_Override_Product_View_Attributes</product_view_attributes>
+                    <product_view_tabs>SwiftOtter_Attribute_Block_Override_Product_View_Tabs</product_view_tabs>
+                </rewrite>
+            </catalog>
+        </blocks>
+
+        <models>
+            <SwiftOtter_Attribute>
+                <class>SwiftOtter_Attribute_Model</class>
+                <resourceModel>SwiftOtter_Attribute_Resource</resourceModel>
+            </SwiftOtter_Attribute>
+            <SwiftOtter_Attribute_Resource>
+                <class>SwiftOtter_Attribute_Model_Resource</class>
+                <entities>
+                    <Category_Exclusion>
+                        <table>swiftotter_attribute_category_exclusion</table>
+                    </Category_Exclusion>
+                </entities>
+            </SwiftOtter_Attribute_Resource>
+        </models>
+
+        <resources>
+            <SwiftOtter_Attribute>
+                <setup>
+                    <module>SwiftOtter_Attribute</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </SwiftOtter_Attribute>
+        </resources>
+
+        <events>
+            <adminhtml_catalog_product_attribute_edit_prepare_form>
+                <observers>
+                    <SwiftOtter_Attribute>
+                        <class>SwiftOtter_Attribute/Observer</class>
+                        <method>adminhtmlCatalogProductAttributeEditPrepareForm</method>
+                    </SwiftOtter_Attribute>
+                </observers>
+            </adminhtml_catalog_product_attribute_edit_prepare_form>
+        </events>
+    </global>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <SwiftOtter_Attribute>
+                    <file>SwiftOtter/Attribute.xml</file>
+                </SwiftOtter_Attribute>
+            </updates>
+        </layout>
+        <events>
+            <controller_action_predispatch_adminhtml_catalog_product_attribute_save>
+                <observers>
+                    <SwiftOtter_Attribute>
+                        <class>SwiftOtter_Attribute_Model_Observer</class>
+                        <method>controllerActionPredispatchAdminhtmlCatalogProductAttributeSave</method>
+                    </SwiftOtter_Attribute>
+                </observers>
+            </controller_action_predispatch_adminhtml_catalog_product_attribute_save>
+        </events>
+    </adminhtml>
+
+</config>
