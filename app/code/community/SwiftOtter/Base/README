@@ -1,0 +1,40 @@
+SwiftOtter_Base is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+SwiftOtter_Base is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with SwiftOtter_Base. If not, see <http://www.gnu.org/licenses/>.
+
+
+Module: SwiftOtter_Base
+Copyright: 2013 (c) SwiftOtter Studios
+Description:
+
+This is the base module for other SwiftOtter modules. Primary functionality
+included is date functionality for reporting and imaging enhancements.
+
+Date functionality for reporting:
+
+In the controller that is handling a call that makes use of the date reporting, initialize the dates like so:
+
+Mage::helper('SwiftOtter_Base')->initDateFilterParams('report_filter');
+
+
+Image functionality:
+
+$image = Mage::helper('SwiftOtter_Base/Image')->createImage($_product, 'image', null, $width, $height, null, null, false)->getSourceUrl();
+
+
+Notable files:
+
+  Model/
+    Source/
+        Abstract.php: A base file for providing source options
+        AttributeSet.php: A list of attribute sets
+        Cms.php: A list of CMS blocks

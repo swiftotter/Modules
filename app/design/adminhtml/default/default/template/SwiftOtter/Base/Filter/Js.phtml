@@ -1,0 +1,61 @@
+<?php
+/** @var $this SwiftOtter_Inventory_Block_Admin_StockVelocityReport_Js */
+?>
+
+<script type="text/javascript">
+    var filterForm = new varienForm('filter_form'),
+        filterOutput = $('form_filter'),
+        filterInput = $F('form_filter'),
+        defaultValues = {};
+
+    if (filterInput !== '' && filterInput !== undefined) {
+        defaultValues = JSON.parse(filterInput);
+    }
+
+
+    function formatDateRange() {
+        var dateRange = $('date_range');
+
+        $H(dates).each(function(output) {
+            var option = new Element('option', {value: output[0]}).update(output[1].formatted);
+            if (defaultValues.standard !== undefined && defaultValues.standard == output[0]) {
+                option.selected = true;
+            }
+
+            dateRange.insert(option);
+        });
+    }
+
+    function assembleAndSubmitRequest() {
+        var output = {};
+
+        if ($F('date_range') === 'none') {
+            output.start = $F('custom_start');
+            output.end = $F('custom_end');
+        } else {
+            output.standard = $F('date_range');
+        }
+
+        $$('#filter_form .form-custom').each(function(element, index) {
+           output[element.name] = $(element).value;
+        });
+
+
+
+        filterOutput.value = JSON.stringify(output);
+        filterForm.submit();
+    }
+
+    <?php $dates = $this->getDateSegments();?>
+
+    var dates = {
+        'none': {formatted: ' -- None -- '},
+    <?php foreach($dates as $name => $value): ?>
+        '<?php echo $name;?>':<?php echo json_encode($value);?>,
+    <?php endforeach; ?>
+    };
+
+    formatDateRange();
+
+
+</script>

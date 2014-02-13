@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout>
+    <PRODUCT_TYPE_simpleconfigurable translate="label" module="catalog">
+        <reference name="head">
+            <action method="addJs"><script>swiftotter/simple-configurable.js</script></action>
+        </reference>
+
+        <label>Catalog Product View (Configurable)</label>
+        <reference name="product.info">
+            <block type="catalog/product_view_type_configurable" name="product.info.configurable" as="product_type_data" template="catalog/product/view/type/default.phtml">
+                <block type="core/text_list" name="product.info.configurable.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+        </reference>
+        <reference name="product.info.options.wrapper">
+            <block type="SwiftOtter_SimpleConfigurable/Frontend_Options" name="product.info.options.configurable" as="options_configurable" before="-" template="SwiftOtter/SimpleConfigurable/Product/View/Type/Options.phtml"/>
+        </reference>
+    </PRODUCT_TYPE_simpleconfigurable>
+</layout>

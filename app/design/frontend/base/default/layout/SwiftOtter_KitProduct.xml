@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout>
+    <PRODUCT_TYPE_kit translate="label" module="SwiftOtter_KitProduct">
+        <label>Catalog Product View (Kit)</label>
+        <reference name="product.info">
+            <block type="SwiftOtter_KitProduct/Catalog_Product_View_Type_Kit" name="product.info.kit" as="product_type_data" template="SwiftOtter/KitProduct/Catalog_Product_View_Type_Kit.phtml">
+                <block type="core/text_list" name="product.info.kit.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+        </reference>
+    </PRODUCT_TYPE_kit>
+
+    <checkout_cart_index>
+        <reference name="content">
+            <reference name="checkout.cart">
+                <action method="addItemRender"><type>kit</type><block>SwiftOtter_KitProduct/Cart_Item_Renderer</block><template>checkout/cart/item/default.phtml</template></action>
+            </reference>
+        </reference>
+    </checkout_cart_index>
+</layout>

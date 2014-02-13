@@ -1,0 +1,30 @@
+<?php
+/**
+ * 
+ *
+ * @author Joseph Maxwell
+ * @copyright Swift Otter Studios, 10/24/2013
+ * @package default
+ **/?>
+
+<?php
+$_product    = $this->getProduct();
+$_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
+?>
+<?php if ($_product->isSaleable() && count($_attributes)):?>
+    <dl>
+        <?php foreach($_attributes as $_attribute): ?>
+            <dt><label class="required"><?php echo $_attribute->getLabel() ?><em>*</em></label></dt>
+            <dd<?php if ($_attribute->decoratedIsLast){?> class="last"<?php }?>>
+                <select name="super_attribute[<?php echo $_attribute->getAttributeId() ?>]" id="attribute<?php echo $_attribute->getAttributeId() ?>" class="required-entry super-attribute-select">
+                    <option><?php echo $this->__('Choose an Option...') ?></option>
+                </select>
+            </dd>
+        <?php endforeach; ?>
+    </dl>
+    <script type="text/javascript">
+        var spConfig = new Product.SimpleConfig(<?php echo $this->getJsonConfig() ?>);
+        var mediaUrl = '<?php echo $this->getUrl('functionality/product/info');?>';
+        var productId = <?php echo $_product->getId();?>;
+    </script>
+<?php endif;?>

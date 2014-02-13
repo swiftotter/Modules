@@ -1,0 +1,11 @@
+#matage-options-panel input[type=file] {
+    width:175px;
+}
+
+#matage-options-panel .delete-image {
+    padding-left:0;
+}
+
+#matage-options-panel .delete-image input {
+    width:auto;
+}

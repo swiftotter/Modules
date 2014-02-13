@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_sales_order_create_index>
+        <reference name="head">
+            <action method="addJs"><file>swiftotter/simple-configurable.js</file></action>
+        </reference>
+    </adminhtml_sales_order_create_index>
+    <PRODUCT_TYPE_simpleconfigurable>
+        <reference name="product.composite.fieldset">
+            <block type="SwiftOtter_SimpleConfigurable/Adminhtml_Options" name="product.composite.fieldset.configurable"
+                   before="product.composite.fieldset.options" template="SwiftOtter/SimpleConfigurable/Options.phtml"/>
+        </reference>
+    </PRODUCT_TYPE_simpleconfigurable>
+
+
+    <adminhtml_catalog_product_simpleconfigurable_new>
+        <remove name="product_tabs"/>
+        <reference name="left">
+            <block type="adminhtml/catalog_product_edit_tabs_configurable" name="configurable_product_tabs"></block>
+        </reference>
+    </adminhtml_catalog_product_simpleconfigurable_new>
+
+    <adminhtml_catalog_product_simpleconfigurable>
+        <reference name="product_tabs">
+            <action method="addTab"><name>configurable</name><block>adminhtml/catalog_product_edit_tab_super_config</block></action>
+            <action method="bindShadowTabs"><first>configurable</first><second>customer_options</second></action>
+        </reference>
+    </adminhtml_catalog_product_simpleconfigurable>
+</layout>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_catalog_product_attribute_edit>
+        <reference name="head">
+            <action method="addCss"><stylesheet>swiftotter/browseattribute.css</stylesheet></action>
+        </reference>
+    </adminhtml_catalog_product_attribute_edit>
+</layout>

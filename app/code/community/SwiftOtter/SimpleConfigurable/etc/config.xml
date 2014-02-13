@@ -1,0 +1,175 @@
+<config>
+    <modules>
+        <SwiftOtter_SimpleConfigurable>
+            <version>0.0.1</version>
+            <depends>
+                <SwiftOtter_Base/>
+            </depends>
+        </SwiftOtter_SimpleConfigurable>
+    </modules>
+
+    <global>
+        <blocks>
+            <SwiftOtter_SimpleConfigurable>
+                <class>SwiftOtter_SimpleConfigurable_Block</class>
+            </SwiftOtter_SimpleConfigurable>
+            <adminhtml>
+                <rewrite>
+                    <!--<catalog_product_edit_tab_super_config_grid>SwiftOtter_SimpleConfigurable_Block_Adminhtml_Override_Catalog_Product_Edit_Tab_Super_Config_Grid</catalog_product_edit_tab_super_config_grid>-->
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <models>
+            <SwiftOtter_SimpleConfigurable>
+                <class>SwiftOtter_SimpleConfigurable_Model</class>
+                <resourceModel>SwiftOtter_SimpleConfigurable_Resource</resourceModel>
+            </SwiftOtter_SimpleConfigurable>
+
+            <SwiftOtter_SimpleConfigurable_Resource>
+                <class>SwiftOtter_SimpleConfigurable_Model_Resource</class>
+                <entities></entities>
+            </SwiftOtter_SimpleConfigurable_Resource>
+        </models>
+
+        <importexport>
+            <import_product_types>
+                <simpleconfigurable>SwiftOtter_SimpleConfigurable/Import_Entity_Product_Type_SimpleConfigurable</simpleconfigurable>
+            </import_product_types>
+        </importexport>
+        <catalog>
+            <product>
+                <type>
+                    <simpleconfigurable translate="label" module="SwiftOtter_SimpleConfigurable">
+                        <label>Simple Configurable</label>
+                        <model>SwiftOtter_SimpleConfigurable/Product_Type_SimpleConfigurable</model>
+                        <price_model>SwiftOtter_SimpleConfigurable/Product_Type_SimpleConfigurable_Price</price_model>
+                        <composite>1</composite>
+                        <allow_product_types>
+                            <simple/>
+                            <virtual/>
+                        </allow_product_types>
+                        <index_priority>55</index_priority>
+                        <price_indexer>SwiftOtter_SimpleConfigurable/Product_Indexer_Price_SimpleConfigurable</price_indexer>
+                    </simpleconfigurable>
+                </type>
+            </product>
+        </catalog>
+
+        <helpers>
+            <SwiftOtter_SimpleConfigurable>
+                <class>SwiftOtter_SimpleConfigurable_Helper</class>
+            </SwiftOtter_SimpleConfigurable>
+        </helpers>
+
+        <resources>
+            <SwiftOtter_SimpleConfigurable>
+                <setup>
+                    <module>SwiftOtter_SimpleConfigurable</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </SwiftOtter_SimpleConfigurable>
+        </resources>
+
+        <events>
+            <!--<sales_convert_quote_item_to_order_item>-->
+                <!--<observers>-->
+                    <!--<SwiftOtter_SimpleConfigurable>-->
+                        <!--<type>singleton</type>-->
+                        <!--<class>SwiftOtter_SimpleConfigurable_Model_Observer</class>-->
+                        <!--<method>salesConvertQuoteItemToOrderItem</method>-->
+                    <!--</SwiftOtter_SimpleConfigurable>-->
+                <!--</observers>-->
+            <!--</sales_convert_quote_item_to_order_item>-->
+        </events>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <SwiftOtter_SimpleConfigurable>
+                    <file>SwiftOtter_SimpleConfigurable.xml</file>
+                </SwiftOtter_SimpleConfigurable>
+            </updates>
+        </layout>
+    </frontend>
+
+    <admin>
+        <!--<routers>-->
+        <!--<adminhtml>-->
+        <!--<args>-->
+        <!--<modules>-->
+        <!--<SwiftOtter_SimpleConfigurable before="Mage_Adminhtml">SwiftOtter_SimpleConfigurable_Adminhtml</SwiftOtter_SimpleConfigurable>-->
+        <!--</modules>-->
+        <!--</args>-->
+        <!--</adminhtml>-->
+        <!--</routers>-->
+
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <SwiftOtter_SimpleConfigurable>
+                    <file>SwiftOtter/SimpleConfigurable.xml</file>
+                </SwiftOtter_SimpleConfigurable>
+            </updates>
+        </layout>
+
+        <events>
+            <catalog_product_load_after>
+                <observers>
+                    <SwiftOtter_SimpleConfigurable>
+                        <class>SwiftOtter_SimpleConfigurable_Model_Observer</class>
+                        <method>catalogProductLoadAfter</method>
+                    </SwiftOtter_SimpleConfigurable>
+                </observers>
+            </catalog_product_load_after>
+
+            <catalog_product_save_before>
+                <observers>
+                    <SwiftOtter_SimpleConfigurable>
+                        <class>SwiftOtter_SimpleConfigurable_Model_Observer</class>
+                        <method>catalogProductSaveBefore</method>
+                    </SwiftOtter_SimpleConfigurable>
+                </observers>
+            </catalog_product_save_before>
+
+            <controller_action_layout_load_before>
+                <observers>
+                    <SwiftOtter_SimpleConfigurable>
+                        <class>SwiftOtter_SimpleConfigurable_Model_Observer</class>
+                        <method>controllerActionLayoutLoadBefore</method>
+                    </SwiftOtter_SimpleConfigurable>
+                </observers>
+            </controller_action_layout_load_before>
+
+            <catalog_product_collection_load_after>
+                <observers>
+                    <SwiftOtter_SimpleConfigurable>
+                        <class>SwiftOtter_SimpleConfigurable_Model_Observer</class>
+                        <method>catalogProductCollectionLoadAfter</method>
+                    </SwiftOtter_SimpleConfigurable>
+                </observers>
+            </catalog_product_collection_load_after>
+            <!--<sales_order_item_collection_load_after>-->
+            <!--<observers>-->
+            <!--<SwiftOtter_SimpleConfigurable>-->
+            <!--<type>singleton</type>-->
+            <!--<class>SwiftOtter_SimpleConfigurable_Model_Observer</class>-->
+            <!--<method>adminhtmlSalesOrderItemCollectionLoadAfter</method>-->
+            <!--</SwiftOtter_SimpleConfigurable>-->
+            <!--</observers>-->
+            <!--</sales_order_item_collection_load_after>-->
+        </events>
+        <sales>
+            <order>
+                <create>
+                    <available_product_types>
+                        <simpleconfigurable/>
+                    </available_product_types>
+                </create>
+            </order>
+        </sales>
+    </adminhtml>
+
+
+</config>

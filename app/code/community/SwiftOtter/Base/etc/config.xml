@@ -1,0 +1,42 @@
+<config>
+	<modules>
+		<SwiftOtter_Base>
+			<version>0.0.1</version>
+		</SwiftOtter_Base>
+	</modules>
+
+
+	<global>
+		<helpers>
+			<SwiftOtter_Base>
+				<class>SwiftOtter_Base_Helper</class>
+			</SwiftOtter_Base>
+		</helpers>
+		<blocks>
+			<SwiftOtter_Base>
+				<class>SwiftOtter_Base_Block</class>
+			</SwiftOtter_Base>
+		</blocks>
+		<models>
+			<SwiftOtter_Base>
+				<class>SwiftOtter_Base_Model</class>
+				<resourceModel>SwiftOtter_Base_Resource</resourceModel>
+			</SwiftOtter_Base>
+
+			<SwiftOtter_Base_Resource>
+				<class>SwiftOtter_Base_Model_Resource</class>
+				<entities>
+					<Carousel>
+						<table>swiftotter_carousel</table>
+					</Carousel>
+				</entities>
+			</SwiftOtter_Base_Resource>
+		</models>
+
+		<helpers>
+			<SwiftOtter_Base>
+				<class>SwiftOtter_Base_Helper</class>
+			</SwiftOtter_Base>
+		</helpers>
+	</global>
+</config>

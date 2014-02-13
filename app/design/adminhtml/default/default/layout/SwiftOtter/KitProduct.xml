@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_catalog_product_kit>
+        <reference name="product_tabs">
+            <action method="addTab"><name>super</name><block>adminhtml/catalog_product_edit_tab_super_group</block></action>
+        </reference>
+    </adminhtml_catalog_product_kit>
+
+    <PRODUCT_TYPE_kit>
+        <reference name="product.composite.fieldset">
+            <block type="adminhtml/catalog_product_composite_fieldset_grouped" name="product.composite.fieldset.grouped" before="product.composite.fieldset.options" template="catalog/product/composite/fieldset/grouped.phtml"/>
+            <remove name="product.composite.fieldset.qty"/>
+        </reference>
+    </PRODUCT_TYPE_kit>
+
+    <adminhtml_sales_order_view>
+        <reference name="order_items">
+            <action method="addItemRender"><type>kit</type><block>SwiftOtter_KitProduct/Adminhtml_Sales_Order_View_Items_Renderer</block><template>sales/order/view/items/renderer/default.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_view>
+
+    <!--<adminhtml_sales_order_invoice_new>-->
+        <!--<reference name="order_items">-->
+            <!--<action method="addItemRender"><type>kit</type><block>SwiftOtter_KitProduct/Adminhtml_Sales_Order_Items_Renderer</block><template>sales/invoice/create/items/renderer/default.phtml</template></action>-->
+        <!--</reference>-->
+    <!--</adminhtml_sales_order_invoice_new>-->
+
+    <!--<adminhtml_sales_order_invoice_updateqty>-->
+        <!--<reference name="order_items">-->
+            <!--<action method="addItemRender"><type>kit</type><block>SwiftOtter_KitProduct/Adminhtml_Sales_Order_Items_Renderer</block><template>sales/invoice/create/items/renderer/default.phtml</template></action>-->
+        <!--</reference>-->
+    <!--</adminhtml_sales_order_invoice_updateqty>-->
+
+    <!--<adminhtml_sales_order_invoice_view>-->
+        <!--<reference name="invoice_items">-->
+            <!--<action method="addItemRender"><type>kit</type><block>SwiftOtter_KitProduct/Adminhtml_Sales_Order_Items_Renderer</block><template>sales/invoice/view/items/renderer/default.phtml</template></action>-->
+        <!--</reference>-->
+    <!--</adminhtml_sales_order_invoice_view>-->
+
+    <!--<adminhtml_sales_order_shipment_new>-->
+        <!--<reference name="order_items">-->
+            <!--<action method="addItemRender"><type>kit</type><block>SwiftOtter_KitProduct/Adminhtml_Sales_Order_Items_Renderer</block><template>sales/shipment/create/items/renderer/default.phtml</template></action>-->
+        <!--</reference>-->
+    <!--</adminhtml_sales_order_shipment_new>-->
+
+    <!--<adminhtml_sales_order_shipment_view>-->
+        <!--<reference name="shipment_items">-->
+            <!--<action method="addItemRender"><type>kit</type><block>SwiftOtter_KitProduct/Adminhtml_Sales_Order_Items_Renderer</block><template>sales/shipment/view/items/renderer/default.phtml</template></action>-->
+        <!--</reference>-->
+    <!--</adminhtml_sales_order_shipment_view>-->
+
+    <!--<adminhtml_sales_order_creditmemo_new>-->
+        <!--<reference name="order_items">-->
+            <!--<action method="addItemRender"><type>kit</type><block>SwiftOtter_KitProduct/Adminhtml_Sales_Order_Items_Renderer</block><template>sales/creditmemo/create/items/renderer/default.phtml</template></action>-->
+        <!--</reference>-->
+    <!--</adminhtml_sales_order_creditmemo_new>-->
+
+    <!--<adminhtml_sales_order_creditmemo_updateqty>-->
+        <!--<reference name="order_items">-->
+            <!--<action method="addItemRender"><type>kit</type><block>SwiftOtter_KitProduct/Adminhtml_Sales_Order_Items_Renderer</block><template>sales/creditmemo/create/items/renderer/default.phtml</template></action>-->
+        <!--</reference>-->
+    <!--</adminhtml_sales_order_creditmemo_updateqty>-->
+
+    <!--<adminhtml_sales_order_creditmemo_view>-->
+        <!--<reference name="creditmemo_items">-->
+            <!--<action method="addItemRender"><type>kit</type><block>SwiftOtter_KitProduct/Adminhtml_Sales_Order_Items_Renderer</block><template>sales/creditmemo/view/items/renderer/default.phtml</template></action>-->
+        <!--</reference>-->
+    <!--</adminhtml_sales_order_creditmemo_view>-->
+</layout>

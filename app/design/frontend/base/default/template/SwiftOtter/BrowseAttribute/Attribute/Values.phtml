@@ -1,0 +1,31 @@
+<?php
+/**
+ *
+ *
+ * @author Joseph Maxwell
+ * @copyright Swift Otter Studios, 1/13/14
+ * @package default
+ **/
+
+/** @var SwiftOtter_BrowseAttribute_Block_Frontend_Attribute_Values $this */
+?>
+<div class="attribute-browse">
+    <div class="page-title attribute-title">
+        <h1><?php echo $this->__('Browse By: '); ?> <?php echo $this->getAttribute()->getFrontendLabel(); ?></h1>
+    </div>
+    <?php if ($this->getAttribute() && count($this->getValues()) > 0):?>
+    <ul class="attribute-values products-grid attributes">
+        <?php foreach ($this->getValues() as $option):?>
+        <li><a href="<?php echo $this->getOptionUrl($option->getValue());?>" title="<?php echo $option->getValue();?>">
+                <?php if ($option->getImagePath()):?>
+                <img src="<?php echo $this->getImageUrl($option->getImagePath());?>" title="<?php echo $option->getValue();?>"/>
+                <?php else:?>
+                <span><?php echo $option->getValue();?></span>
+                <?php endif;?>
+            </a>
+        </li>
+        <?php endforeach;?>
+    </ul>
+    <?php endif;?>
+
+</div>

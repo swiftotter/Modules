@@ -1,0 +1,147 @@
+<config>
+    <modules>
+        <SwiftOtter_KitProduct>
+            <version>0.0.2</version>
+        </SwiftOtter_KitProduct>
+    </modules>
+
+    <global>
+        <blocks>
+            <SwiftOtter_KitProduct>
+                <class>SwiftOtter_KitProduct_Block</class>
+            </SwiftOtter_KitProduct>
+            <adminhtml>
+                <rewrite>
+                    <!--<catalog_product_edit_tab_super_config_grid>SwiftOtter_KitProduct_Block_Adminhtml_Override_Catalog_Product_Edit_Tab_Super_Config_Grid</catalog_product_edit_tab_super_config_grid>-->
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <models>
+            <SwiftOtter_KitProduct>
+                <class>SwiftOtter_KitProduct_Model</class>
+                <resourceModel>SwiftOtter_KitProduct_Resource</resourceModel>
+            </SwiftOtter_KitProduct>
+
+            <SwiftOtter_KitProduct_Resource>
+                <class>SwiftOtter_KitProduct_Model_Resource</class>
+                <entities></entities>
+            </SwiftOtter_KitProduct_Resource>
+        </models>
+
+        <importexport>
+            <import_product_types>
+                <kit>SwiftOtter_KitProduct/Import_Entity_Product_Type_Kit</kit>
+            </import_product_types>
+        </importexport>
+        <catalog>
+            <product>
+                <type>
+                    <configurable>
+                        <allow_product_types>
+                            <kit/>
+                        </allow_product_types>
+                    </configurable>
+                    <grouped>
+                        <allow_product_types>
+                            <kit/>
+                        </allow_product_types>
+                    </grouped>
+                    <kit translate="label" module="SwiftOtter_KitProduct">
+                        <label>Kit</label>
+                        <model>SwiftOtter_KitProduct/Product_Type_Kit</model>
+                        <price_model>SwiftOtter_KitProduct/Product_Type_Kit_Price</price_model>
+                        <composite>1</composite>
+                        <allow_product_types>
+                            <simple/>
+                            <kit/>
+                            <virtual/>
+                        </allow_product_types>
+                        <index_priority>55</index_priority>
+                        <price_indexer>catalog/product_indexer_price_default</price_indexer>
+                    </kit>
+                </type>
+            </product>
+        </catalog>
+
+        <helpers>
+            <SwiftOtter_KitProduct>
+                <class>SwiftOtter_KitProduct_Helper</class>
+            </SwiftOtter_KitProduct>
+        </helpers>
+
+        <resources>
+            <SwiftOtter_KitProduct>
+                <setup>
+                    <module>SwiftOtter_KitProduct</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </SwiftOtter_KitProduct>
+        </resources>
+
+        <events>
+            <sales_convert_quote_item_to_order_item>
+                <observers>
+                    <SwiftOtter_KitProduct>
+                        <type>singleton</type>
+                        <class>SwiftOtter_KitProduct_Model_Observer</class>
+                        <method>salesConvertQuoteItemToOrderItem</method>
+                    </SwiftOtter_KitProduct>
+                </observers>
+            </sales_convert_quote_item_to_order_item>
+        </events>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <SwiftOtter_KitProduct>
+                    <file>SwiftOtter_KitProduct.xml</file>
+                </SwiftOtter_KitProduct>
+            </updates>
+        </layout>
+    </frontend>
+
+    <admin>
+        <!--<routers>-->
+        <!--<adminhtml>-->
+        <!--<args>-->
+        <!--<modules>-->
+        <!--<SwiftOtter_KitProduct before="Mage_Adminhtml">SwiftOtter_KitProduct_Adminhtml</SwiftOtter_KitProduct>-->
+        <!--</modules>-->
+        <!--</args>-->
+        <!--</adminhtml>-->
+        <!--</routers>-->
+
+    </admin>
+    <adminhtml>
+        <events>
+            <sales_order_item_collection_load_after>
+                <observers>
+                    <SwiftOtter_KitProduct>
+                        <type>singleton</type>
+                        <class>SwiftOtter_KitProduct_Model_Observer</class>
+                        <method>adminhtmlSalesOrderItemCollectionLoadAfter</method>
+                    </SwiftOtter_KitProduct>
+                </observers>
+            </sales_order_item_collection_load_after>
+        </events>
+        <sales>
+            <order>
+                <create>
+                    <available_product_types>
+                        <kit/>
+                    </available_product_types>
+                </create>
+            </order>
+        </sales>
+        <layout>
+            <updates>
+                <SwiftOtter_KitProduct>
+                    <file>SwiftOtter/KitProduct.xml</file>
+                </SwiftOtter_KitProduct>
+            </updates>
+        </layout>
+    </adminhtml>
+
+
+</config>
