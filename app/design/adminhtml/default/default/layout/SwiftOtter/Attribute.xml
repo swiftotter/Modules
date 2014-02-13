@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_catalog_product_attribute_edit>
+        <reference name="js">
+            <block type="core/template" name="attribute_edit_js_category" template="SwiftOtter/Attribute/Catalog_Product_Category_Js.phtml" before="-"/>
+        </reference>
+        <reference name="left">
+            <reference name="attribute_edit_tabs">
+                <block type="SwiftOtter_Attribute/Adminhtml_Attribute_Catalog_Product_Category" name="tab_exclude_category"
+                       template="SwiftOtter/Attribute/Catalog_Product_Category.phtml" />
+                <action method="addTabAfter"><name>categories</name><block>tab_exclude_category</block><after>labels</after></action>
+            </reference>
+        </reference>
+    </adminhtml_catalog_product_attribute_edit>
+</layout>

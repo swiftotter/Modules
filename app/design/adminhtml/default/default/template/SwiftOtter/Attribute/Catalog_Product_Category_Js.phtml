@@ -1,0 +1,50 @@
+<?php
+/**
+ *
+ *
+ * @author Joseph Maxwell
+ * @copyright Swift Otter Studios, 1/31/14
+ * @package default
+ **/
+ ?>
+
+<?php /** @var SwiftOtter_Attribute_Block_Adminhtml_Attribute_Catalog_Product_Category $this */?>
+
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl('swiftotter/attribute/themes/default/style.min.css');?>" type="text/css"/>
+
+<script src="<?php echo $this->getSkinUrl('swiftotter/attribute/libs/jquery.js');?>"></script>
+<script>
+    jQuery.noConflict();
+</script>
+
+<script src="<?php echo $this->getSkinUrl('swiftotter/attribute/jstree.min.js');?>"></script>
+<script type="text/javascript">
+
+	(function($) {
+		var exclusions = $('#category_exclusions');
+
+		exclusions.jstree({
+			core: {
+				data: data,
+				expand_selected_onload:true
+			},
+			checkbox: {
+				three_state: false,
+				keep_selected_style: true
+			},
+			plugins: ['checkbox']
+		});
+
+		if (varienGlobalEvents !== undefined) {
+			varienGlobalEvents.attachEventHandler('formValidateAjaxComplete', function() {
+				var values = JSON.stringify(exclusions.jstree().get_selected());
+				$('#input-category-exclusions').val(values);
+			})
+		}
+
+//		$('#edit_form').submit(function() {
+//
+//		});
+	})(jQuery);
+
+</script>
